@@ -1,4 +1,5 @@
 import mqtt from "mqtt";
+
 import type { MqttClient, IClientPublishOptions } from "mqtt";
 import type { OnMessageCallback, ISubscriptionMap } from "mqtt/types/lib/client";
 
@@ -36,7 +37,7 @@ const attachPrefix = (prefix: string, value: string) => {
     return prefix + value;
 };
 
-// eslint-disable-next-line max-lines-per-function
+// eslint-disable-next-line max-lines-per-function,max-statements
 const createMQTT = (conString: string, prefix = "") => {
     const connection = mqtt.connect(conString) as unknown as MyMQTT;
     let p = prefix ? prefix : "";
@@ -44,11 +45,18 @@ const createMQTT = (conString: string, prefix = "") => {
         p += "/";
     }
 
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    const originalPublish = connection.publish;
+    connection.publish = function publish(topic, ...args) {
+        // @ts-expect-error ts can't handle that, whatever
+        return originalPublish.apply(this, [attachPrefix(p, topic), ...args]);
+    };
+
     connection.now = (event, opts) => connection.publish(
-        attachPrefix(p, event), String(Date.now()), opts!,
+        event, String(Date.now()), opts!,
     ); // this ! shouldn't be here, but TS...
     connection.publishNow = (event, data, opts) => {
-        connection.publish(attachPrefix(p, event), JSON.stringify({
+        connection.publish(event, JSON.stringify({
             ...data,
             time: Date.now(),
         }), opts!);

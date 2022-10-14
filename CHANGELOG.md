@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [2.0.0] - 2022-10-14
+### Breaking
+- `publish` will add the prefix as well, not only `now` and `publishNow`
+
 ## [1.0.0] - 2022-05-17
 ### Added
 - first version

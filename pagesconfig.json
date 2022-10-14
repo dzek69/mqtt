@@ -1,8 +1,9 @@
 {
-    "groups": [
+    "pages": [
         {
-            "title": "Tutorials",
-            "pages": []
+            "title": "Usage",
+            "source": "./tutorials/Usage.md"
         }
-    ]
+    ],
+    "source": "tutorials"
 }
