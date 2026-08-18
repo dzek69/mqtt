@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [3.0.1] - 2026-08-18
+### Fixed
+- invalid `peerDependencies` field
+### Dev
+- migrated to newer pnpm, which upgraded dev deps
+
 ## [3.0.0] - 2024-12-29
 ### Breaking
 - subscribing now requires the same amount of unsubscribing to stop receiving messages

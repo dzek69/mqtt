@@ -1,6 +1,6 @@
 {
   "name": "@ezez/mqtt",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "repository": "git@github.com:dzek69/mqtt.git",
   "author": "Jacek Nowacki",
   "license": "MIT",
@@ -50,11 +50,11 @@
     "prettier": "^3.2.5",
     "resolve-tspaths": "^0.8.15",
     "ts-node": "^10.9.2",
-    "typedoc": "0.26.0-beta.2",
+    "typedoc": "0.28.20",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "mqtt": "^4.3.7 | ^5.0.0"
+    "mqtt": "^4.3.7 || ^5.0.0"
   },
   "husky": {
     "hooks": {
